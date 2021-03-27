@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+      <title>Rodizio de Livros</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="../css/style.css">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+	  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesomee.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+      <link rel="stylesheet" href="../MDB/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../MDB/css/mdb.min.css">
+      <link rel="stylesheet" href="../MDB/css/style.css">
+      <link rel="shortcut icon" href="../assets/logo3.png" />
+      <link rel="stylesheet" type="text/css" href="../css/style.css">
+      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
+</head>
+<body>
+<nav>
+   			<input type="checkbox" id="check">
+   			<label for="check" class="checkbtn">
+   				<i class="fas fa-bars"></i>
+   			</label>
+   			<label class="logo" style="font-family: 'Montserrat', sans-serif;">RODIZIO DE LIVROS</label>
+   			<ul>  
+   				<li><a id="nav" class="active" href="#">Login</a></li>
+   				<li><a id="nav" href="cadastro.html">Cadastro</a></li>
+   				<li><a id="nav" href="sobre.html">Sobre</a></li>
+   			</ul>
+   		</nav>
+   		<section>
+   			<img src="../assets/bg2.png"/>
+	   		<div class="login-box">
+				<h1>LOGIN</h1>
+				<form  id="frmLogin">
+				<div class="textbox">
+					<i class="fas fa-envelope"></i>
+					<input type="text" placeholder="Email" name="user">
+				</div>
+				
+				<div class="textbox">
+					<i class="fas fa-lock"></i>
+					<input type="password" placeholder="Senha" name="pass">
+				</div>
+				
+				<input class="botao" type="button" value="Entrar" id="btnSendFrmLogin"/>
+				<a href="cadastro.html" id="login-properties">Não possui uma conta? Cadastre-se</a>
+				</form>
+				<div id="msgLogin">  
+           		</div>
+			</div>
+		</section>
+		<footer class="footer">
+   			<div class="footer-left">
+   				<img src="../assets/logo2.png"/>
+   				<p id="text-legal">Instituto Federal de São Paulo<br/>
+   				Campûs Guarulhos<br/>
+   				Tecnologia em ADS<br/>
+   				Projeto de PWED4<br/>
+   				Rodrigo de Oliveira Geraldes
+   				 </p>
+	   			<div class="socials">
+	   				<a href="#"><i class="fab fa-facebook-square"></i></a>
+	   				<a href="#"><i class="fab fa-instagram"></i></a>
+	   				<a href="#"><i class="fab fa-youtube"></i></a>
+	   				<a href="#"><i class="fab fa-github"></i></a>
+	   				<a href="#"><i class="fab fa-linkedin"></i></a>
+	   			</div>
+   			</div>
+   		</footer>
+   		<!-- Default form login -->
+      <script>
+         $(document).ready( 
+         	function() {
+         		$("#btnSendFrmLogin").click(
+         				function() {
+         					var formData = $("#frmLogin").serialize();
+         					$.post( "formLogin.jsp", formData, function( data, status  ) {
+         							if (data.login){
+         								window.location.href = "home.jsp";
+         							}else{
+         								$("#msgLogin").html("<span id='login-properties' style='color: red;'> Usuário ou senha inválidos! </span>");
+         							}
+         							
+         						}, 'json'
+         					);	
+         				}		
+         			);
+         	} 
+         );
+         
+      </script>
+</body>
+</html>
